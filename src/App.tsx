@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
+import { Toaster } from 'react-hot-toast';
 
 // Layouts
 import { DashboardLayout } from './components/layout/DashboardLayout';
@@ -27,6 +28,7 @@ import { SettingsPage } from './pages/settings/SettingsPage';
 import { HelpPage } from './pages/help/HelpPage';
 import { DealsPage } from './pages/deals/DealsPage';
 import { CalendarPage } from './pages/calendar/CalendarPage';
+import { VideoCallPage } from './pages/video/VideoCallPage';
 
 // Chat Pages
 import { ChatPage } from './pages/chat/ChatPage';
@@ -35,6 +37,7 @@ function App() {
   return (
     <AuthProvider>
       <Router>
+        <Toaster position="top-right" />
         <Routes>
           {/* Authentication Routes */}
           <Route path="/login" element={<LoginPage />} />
@@ -45,6 +48,7 @@ function App() {
             <Route path="entrepreneur" element={<EntrepreneurDashboard />} />
             <Route path="investor" element={<InvestorDashboard />} />
             <Route path="calendar" element={<CalendarPage />} />
+            <Route path="video" element={<VideoCallPage />} />
           </Route>
           
           {/* Profile Routes */}
