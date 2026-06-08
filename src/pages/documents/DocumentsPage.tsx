@@ -16,7 +16,7 @@ interface DocumentItem {
   pages: number;
 }
 
-const statusVariants: Record<DocumentItem['status'], string> = {
+const statusVariants: Record<DocumentItem['status'], 'gray' | 'accent' | 'success' | 'error'> = {
   Draft: 'gray',
   'In Review': 'accent',
   Signed: 'success',
