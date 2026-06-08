@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Users, Bell, Calendar, TrendingUp, AlertCircle, PlusCircle } from 'lucide-react';
+import { Users, Bell, Calendar, TrendingUp, AlertCircle, PlusCircle, BookOpen, CreditCard } from 'lucide-react';
 import { Button } from '../../components/ui/Button';
 import { Card, CardBody, CardHeader } from '../../components/ui/Card';
 import { Badge } from '../../components/ui/Badge';
@@ -116,6 +116,38 @@ export const EntrepreneurDashboard: React.FC = () => {
         </Card>
       </div>
       
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <Link to="/documents">
+          <Card className="border border-slate-200 hover:border-primary-300 transition-colors duration-200">
+            <CardBody>
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-sm font-medium text-gray-700">Documents</p>
+                  <h3 className="text-xl font-semibold text-gray-900">Manage contracts</h3>
+                </div>
+                <BookOpen size={28} className="text-primary-600" />
+              </div>
+              <p className="mt-3 text-sm text-slate-500">Upload, preview, sign, and share documents from a single workspace.</p>
+            </CardBody>
+          </Card>
+        </Link>
+
+        <Link to="/payments">
+          <Card className="border border-slate-200 hover:border-primary-300 transition-colors duration-200">
+            <CardBody>
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-sm font-medium text-gray-700">Payments</p>
+                  <h3 className="text-xl font-semibold text-gray-900">Review wallet</h3>
+                </div>
+                <CreditCard size={28} className="text-primary-600" />
+              </div>
+              <p className="mt-3 text-sm text-slate-500">Deposit, withdraw, and request funding right from your dashboard.</p>
+            </CardBody>
+          </Card>
+        </Link>
+      </div>
+
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Collaboration requests */}
         <div className="lg:col-span-2 space-y-4">

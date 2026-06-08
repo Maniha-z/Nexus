@@ -89,6 +89,29 @@ export interface Document {
   ownerId: string;
 }
 
+export type PaymentAction = 'deposit' | 'withdraw' | 'transfer' | 'funding';
+export type PaymentStatus = 'completed' | 'pending' | 'failed';
+
+export interface PaymentTransaction {
+  id: string;
+  type: PaymentAction;
+  amount: number;
+  currency: string;
+  senderId: string | null;
+  receiverId: string | null;
+  status: PaymentStatus;
+  createdAt: string;
+  description: string;
+}
+
+export interface WalletBalance {
+  userId: string;
+  balance: number;
+  available: number;
+  pending: number;
+  currency: string;
+}
+
 export interface AuthContextType {
   user: User | null;
   login: (email: string, password: string, role: UserRole) => Promise<void>;

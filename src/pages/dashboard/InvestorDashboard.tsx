@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Users, PieChart, Filter, Search, PlusCircle, Calendar } from 'lucide-react';
+import { Users, PieChart, Filter, Search, PlusCircle, Calendar, BookOpen, CreditCard } from 'lucide-react';
 import { Button } from '../../components/ui/Button';
 import { Card, CardBody, CardHeader } from '../../components/ui/Card';
 import { Input } from '../../components/ui/Input';
@@ -161,7 +161,39 @@ export const InvestorDashboard: React.FC = () => {
           </CardBody>
         </Card>
       </div>
-      
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <Link to="/documents">
+          <Card className="border border-slate-200 hover:border-primary-300 transition-colors duration-200">
+            <CardBody>
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-sm font-medium text-gray-700">Documents</p>
+                  <h3 className="text-xl font-semibold text-gray-900">Investor docs</h3>
+                </div>
+                <BookOpen size={28} className="text-primary-600" />
+              </div>
+              <p className="mt-3 text-sm text-slate-500">Access shared documents, term sheets, and deal contracts.</p>
+            </CardBody>
+          </Card>
+        </Link>
+
+        <Link to="/payments">
+          <Card className="border border-slate-200 hover:border-primary-300 transition-colors duration-200">
+            <CardBody>
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-sm font-medium text-gray-700">Payments</p>
+                  <h3 className="text-xl font-semibold text-gray-900">Funding flow</h3>
+                </div>
+                <CreditCard size={28} className="text-primary-600" />
+              </div>
+              <p className="mt-3 text-sm text-slate-500">Simulate transfers, deposits, and deal funding directly from your dashboard.</p>
+            </CardBody>
+          </Card>
+        </Link>
+      </div>
+
       {/* Entrepreneurs grid */}
       <div>
         <Card>

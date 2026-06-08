@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { Home, Settings, HelpCircle, Calendar, Video, BookOpen } from 'lucide-react';
+import { Home, Settings, HelpCircle, Calendar, Video, BookOpen, CreditCard } from 'lucide-react';
 
 interface SidebarItemProps {
   to: string;
@@ -37,6 +37,7 @@ export const Sidebar: React.FC = () => {
     { to: '/dashboard/entrepreneur', icon: <Home size={20} />, text: 'Dashboard' },
     { to: '/dashboard/calendar', icon: <Calendar size={20} />, text: 'Calendar' },
     { to: '/dashboard/video', icon: <Video size={20} />, text: 'Video Call' },
+    { to: '/payments', icon: <CreditCard size={20} />, text: 'Payments' },
     { to: '/documents', icon: <BookOpen size={20} />, text: 'Documents' },
   ];
   
@@ -44,6 +45,7 @@ export const Sidebar: React.FC = () => {
     { to: '/dashboard/investor', icon: <Home size={20} />, text: 'Dashboard' },
     { to: '/dashboard/calendar', icon: <Calendar size={20} />, text: 'Calendar' },
     { to: '/dashboard/video', icon: <Video size={20} />, text: 'Video Call' },
+    { to: '/payments', icon: <CreditCard size={20} />, text: 'Payments' },
     { to: '/documents', icon: <BookOpen size={20} />, text: 'Documents' },
   ];
   
