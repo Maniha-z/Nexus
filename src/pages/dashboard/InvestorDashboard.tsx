@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Users, PieChart, Filter, Search, PlusCircle } from 'lucide-react';
+import { Users, PieChart, Filter, Search, PlusCircle, Calendar } from 'lucide-react';
 import { Button } from '../../components/ui/Button';
 import { Card, CardBody, CardHeader } from '../../components/ui/Card';
 import { Input } from '../../components/ui/Input';
@@ -10,6 +10,7 @@ import { useAuth } from '../../context/AuthContext';
 import { Entrepreneur } from '../../types';
 import { entrepreneurs } from '../../data/users';
 import { getRequestsFromInvestor } from '../../data/collaborationRequests';
+import { getConfirmedMeetingsForUser } from '../../data/meetings';
 
 export const InvestorDashboard: React.FC = () => {
   const { user } = useAuth();
@@ -21,6 +22,7 @@ export const InvestorDashboard: React.FC = () => {
   // Get collaboration requests sent by this investor
   const sentRequests = getRequestsFromInvestor(user.id);
   const requestedEntrepreneurIds = sentRequests.map(req => req.entrepreneurId);
+  const confirmedMeetings = getConfirmedMeetingsForUser(user.id);
   
   // Filter entrepreneurs based on search and industry filters
   const filteredEntrepreneurs = entrepreneurs.filter(entrepreneur => {
@@ -141,6 +143,19 @@ export const InvestorDashboard: React.FC = () => {
                 <h3 className="text-xl font-semibold text-accent-900">
                   {sentRequests.filter(req => req.status === 'accepted').length}
                 </h3>
+              </div>
+            </div>
+          </CardBody>
+        </Card>
+        <Card className="bg-primary-50 border border-primary-100">
+          <CardBody>
+            <div className="flex items-center">
+              <div className="p-3 bg-primary-100 rounded-full mr-4">
+                <Calendar size={20} className="text-primary-700" />
+              </div>
+              <div>
+                <p className="text-sm font-medium text-primary-700">Upcoming Meetings</p>
+                <h3 className="text-xl font-semibold text-primary-900">{confirmedMeetings.length}</h3>
               </div>
             </div>
           </CardBody>

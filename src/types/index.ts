@@ -57,6 +57,27 @@ export interface CollaborationRequest {
   createdAt: string;
 }
 
+export type MeetingStatus = 'requested' | 'confirmed' | 'declined';
+
+export interface Meeting {
+  id: string;
+  title: string;
+  organizerId: string;
+  participantId: string;
+  start: string;
+  end: string;
+  status: MeetingStatus;
+  createdAt: string;
+}
+
+export interface AvailabilitySlot {
+  id: string;
+  userId: string;
+  date: string;
+  start: string;
+  end: string;
+}
+
 export interface Document {
   id: string;
   name: string;
